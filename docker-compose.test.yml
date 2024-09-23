@@ -2,11 +2,13 @@ services:
   backend:
     build:
       context: ./backend
-    env_file:
-      - .env.test
-    command: npm run test
+      args:
+        NODE_ENV: test
+    environment:
+      - NODE_ENV=test
     ports:
       - "4000:4000"
+    command: npm run test
     depends_on:
       - db
 

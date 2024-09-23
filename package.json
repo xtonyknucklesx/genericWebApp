@@ -1,5 +1,4 @@
 {
-  "name": "genericWebApp",
   "version": "1.0.0",
   "private": true,
   "workspaces": [
@@ -7,7 +6,7 @@
     "backend"
   ],
   "scripts": {
-    "start": "npm run start:backend & npm run start:frontend",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
     "start:backend": "npm --prefix backend start",
     "start:frontend": "npm --prefix frontend start",
     "dev": "npm run dev:backend & npm run dev:frontend",
@@ -21,7 +20,8 @@
     "build:frontend": "npm --prefix frontend run build"
   },
   "devDependencies": {
-    "concurrently": "^9.0.1"
+    "concurrently": "^9.0.1",
+    "nodemon": "^3.1.7"
   },
   "engines": {
     "node": ">=14.0.0"
