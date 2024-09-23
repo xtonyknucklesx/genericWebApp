@@ -1,7 +1,5 @@
 services:
   backend:
-    build:
-      context: ./backend
     env_file:
       - .env.prod
     ports:
@@ -10,8 +8,6 @@ services:
       - db
   
   frontend:
-    build:
-      context: ./frontend
     env_file:
       - .env.prod
     ports:
@@ -24,4 +20,4 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./genericWebApp_prod:/var/lib/postgresql/data
+      - ./db/prod:/var/lib/postgresql/data

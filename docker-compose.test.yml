@@ -4,12 +4,13 @@ services:
       - .env.test
     command: npm run test
     ports:
-      - "${PORT:-4000}:4000"
+      - "4000:4000"
     depends_on:
       - db
 
   frontend:
-    build: ./frontend
+    env_file: 
+      - .env.test
     ports:
       - "3000:3000"
     depends_on:
@@ -21,4 +22,4 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./test-db-data:/var/lib/postgresql/data
+      - .db.test:/var/lib/postgresql/data
