@@ -11,11 +11,11 @@ services:
   backend:
     build: ./backend
     ports:
-      - "4000:4000"
+      - "${PORT}:${PORT}"
     depends_on:
       - db
-    environment:
-      - DB_URL=postgres:password@db:5432/genericwebapp
+    env_file:
+      - .env.dev
   
   db:
     image: postgres:13-alpine

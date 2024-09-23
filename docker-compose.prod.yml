@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "443:3000"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "${PORT}:${PORT}"
+    depends_on:
+      - db
+    env_file:
+      - .env.prod
+  
+  db:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
