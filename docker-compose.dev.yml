@@ -1,5 +1,7 @@
 services:
   backend:
+    volumes: 
+      - ./backend:/app
     env_file: 
       - .env.dev
     command: npm run dev
@@ -7,6 +9,8 @@ services:
       - "4000:4000"
 
   frontend:
+    volumes: 
+      - ./frontend:/src/app
     env_file:
       - .env.dev
     ports: 
