@@ -1,7 +1,7 @@
 services:
   backend:
     build: 
-      context: ./backend
+      context: ./src/backend
     ports:
       - "4000:4000"
     depends_on:
@@ -9,7 +9,7 @@ services:
   
   frontend:
     build: 
-      context: ./frontend
+      context: ./src/frontend
     ports:
       - "3000:3000"
     depends_on:
@@ -18,6 +18,6 @@ services:
   db:
     image: postgres:13-alpine
     volumes:
-      - ./db/data:/var/lib/postgresql/data
+      - ./src/db/data:/var/lib/postgresql/data
     ports:
       - "5432:5432"

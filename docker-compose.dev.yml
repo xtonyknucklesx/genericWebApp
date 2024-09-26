@@ -1,13 +1,13 @@
 services:
   backend:
     build:
-      context: ./backend
+      context: ./src/backend
       args:
         NODE_ENV: development
     environment:
       - NODE_ENV=development
     volumes: 
-      - ./backend:/app
+      - ./src/backend:/app
       - /app/node_modules
     command: npm run dev
     ports:
@@ -15,7 +15,7 @@ services:
 
   frontend:
     volumes: 
-      - ./frontend:/app
+      - ./src/frontend:/app
     env_file:
       - .env.dev
     ports: 
@@ -27,4 +27,4 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./db/dev:/var/lib/postgresql/data
+      - ./src/db/dev:/var/lib/postgresql/data

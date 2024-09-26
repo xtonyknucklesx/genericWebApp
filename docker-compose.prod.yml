@@ -1,7 +1,7 @@
 services:
   backend:
     build:
-      context: ./backend
+      context: ./src/backend
       args:
         NODE_ENV: production
     environment:
@@ -25,4 +25,4 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./db/prod:/var/lib/postgresql/data
+      - ./src/db/prod:/var/lib/postgresql/data

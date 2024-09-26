@@ -1,7 +1,7 @@
 services:
   backend:
     build:
-      context: ./backend
+      context: ./src/backend
       args:
         NODE_ENV: test
     environment:
@@ -14,7 +14,7 @@ services:
 
   frontend:
     build:
-      context: ./frontend
+      context: ./src/frontend
     env_file: 
       - .env.test
     ports:
@@ -28,4 +28,4 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./db/test:/var/lib/postgresql/data
+      - ./src/db/test:/var/lib/postgresql/data
