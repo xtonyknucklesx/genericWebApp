@@ -13,7 +13,6 @@ services:
       - db
   
   frontend:
-    context: ./frontend
     env_file:
       - .env.prod
     ports:
