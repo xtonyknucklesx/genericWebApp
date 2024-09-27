@@ -28,9 +28,3 @@ app.use(morgan('combined')); // Logs requests to the console
 app.get('/', (req, res) => {
     res.json({ message: 'Welcome to the Backend API of genericWebAPP', jwtSecret, apiKey})
 });
-
-app.listen(port, () => {
-    console.log('Backend API is running on port ${port}');
-    console.log('JWT Secret: ${jwtSecret}');
-    console.log('API Key: ${apiKey}');
-});

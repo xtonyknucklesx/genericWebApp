@@ -2,13 +2,13 @@ services:
   backend:
     build:
       context: ./src/backend
-      args:
-        NODE_ENV: test
+    volumes: 
+      - /src/backend
     environment:
-      - NODE_ENV=test
+      NODE_ENV: test
     ports:
       - "4000:4000"
-    command: npm run test
+    command: ./run_tests.sh
     depends_on:
       - db
 
